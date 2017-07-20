@@ -117,6 +117,8 @@ type Cassette struct {
 
 	// Matches actual request with interaction requests.
 	Matcher Matcher `json:"-"`
+
+	idx int
 }
 
 // New creates a new empty cassette
@@ -154,12 +156,15 @@ func (c *Cassette) AddInteraction(i *Interaction) {
 
 // GetInteraction retrieves a recorded request/response interaction
 func (c *Cassette) GetInteraction(r *http.Request) (*Interaction, error) {
-	c.RLock()
-	defer c.RUnlock()
-	for _, i := range c.Interactions {
-		if c.Matcher(r, i.Request) {
-			return i, nil
-		}
+	c.Lock()
+	defer c.Unlock()
+
+	if c.idx == len(c.Interactions) {
+		return nil, ErrInteractionNotFound
+	}
+	if i := c.Interactions[c.idx]; c.Matcher(r, i.Request) {
+		c.idx++
+		return i, nil
 	}
 
 	return nil, ErrInteractionNotFound

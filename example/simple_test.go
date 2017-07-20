@@ -27,15 +27,28 @@ package vcr_test
 import (
 	"io/ioutil"
 	"net/http"
+	"net/url"
+	"os"
 	"strings"
 	"testing"
 
+	"github.com/flynn/go-vcr/cassette"
 	"github.com/flynn/go-vcr/recorder"
 )
 
+var recording = os.Getenv("RECORDING") != ""
+
+func newRecorder(name string) (*recorder.Recorder, error) {
+	mode := recorder.ModeReplaying
+	if recording {
+		mode = recorder.ModeRecording
+	}
+	return recorder.NewAsMode(name, mode, nil)
+}
+
 func TestSimple(t *testing.T) {
 	// Start our recorder
-	r, err := recorder.New("fixtures/golang-org")
+	r, err := newRecorder("fixtures/golang-org")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -46,13 +59,14 @@ func TestSimple(t *testing.T) {
 		Transport: r, // Inject as transport!
 	}
 
-	url := "http://golang.org/"
-	resp, err := client.Get(url)
+	u := "http://golang.org/"
+	resp, err := client.Get(u)
 	if err != nil {
-		t.Fatalf("Failed to get url %s: %s", url, err)
+		t.Fatalf("Failed to get url %s: %s", u, err)
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
 	if err != nil {
 		t.Fatalf("Failed to read response body: %s", err)
 	}
@@ -62,5 +76,13 @@ func TestSimple(t *testing.T) {
 
 	if !strings.Contains(bodyContent, wantTitle) {
 		t.Errorf("Title %s not found in response", wantTitle)
+	}
+
+	if !recording {
+		_, err = client.Get(u)
+		urlErr, ok := err.(*url.Error)
+		if !ok || urlErr.Err != cassette.ErrInteractionNotFound {
+			t.Errorf("expected ErrInteractionNotFound but didn't get it")
+		}
 	}
 }
