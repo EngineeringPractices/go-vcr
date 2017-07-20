@@ -28,9 +28,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dnaeon/go-vcr/recorder"
-
 	"github.com/coreos/etcd/client"
+	"github.com/flynn/go-vcr/recorder"
 	"golang.org/x/net/context"
 )
 

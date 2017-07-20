@@ -35,7 +35,7 @@ import (
 	"net/http/httputil"
 	"os"
 
-	"github.com/dnaeon/go-vcr/cassette"
+	"github.com/flynn/go-vcr/cassette"
 )
 
 // Mode represents recording/playback mode
