@@ -138,7 +138,7 @@ func New(cassetteName string) (*Recorder, error) {
 // NewAsMode creates a new recorder in the specified mode
 func NewAsMode(cassetteName string, mode Mode, realTransport http.RoundTripper) (*Recorder, error) {
 	var c *cassette.Cassette
-	cassetteFile := fmt.Sprintf("%s.yaml", cassetteName)
+	cassetteFile := fmt.Sprintf("%s.json", cassetteName)
 
 	if mode != ModeDisabled {
 		// Depending on whether the cassette file exists or not we

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "body": "",
+        "form": {},
+        "headers": {},
+        "url": "http://golang.org/",
+        "method": "GET"
+      },
+      "response": {
+        "body": "\u003ca href=\"https://golang.org/\"\u003eFound\u003c/a\u003e.\n\n",
+        "headers": {
+          "Content-Length": [
+            "42"
+          ],
+          "Content-Type": [
+            "text/html; charset=utf-8"
+          ],
+          "Date": [
+            "Thu, 20 Jul 2017 18:55:28 GMT"
+          ],
+          "Location": [
+            "https://golang.org/"
+          ],
+          "Server": [
+            "Google Frontend"
+          ],
+          "X-Cloud-Trace-Context": [
+            "f676db3942f69b3f707339844c1fd651"
+          ]
+        },
+        "status": "302 Found",
+        "code": 302
+      }
+    },
+    {
+      "request": {
+        "body": "",
+        "form": {},
+        "headers": {
+          "Referer": [
+            "http://golang.org/"
+          ]
+        },
+        "url": "https://golang.org/",
+        "method": "GET"
+      },
+      "response": {
+        "body": "\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003chead\u003e\n\u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"\u003e\n\u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n\u003cmeta name=\"theme-color\" content=\"#375EAB\"\u003e\n\n  \u003ctitle\u003eThe Go Programming Language\u003c/title\u003e\n\n\u003clink type=\"text/css\" rel=\"stylesheet\" href=\"/lib/godoc/style.css\"\u003e\n\n\u003clink rel=\"search\" type=\"application/opensearchdescription+xml\" title=\"godoc\" href=\"/opensearch.xml\" /\u003e\n\n\u003clink rel=\"stylesheet\" href=\"/lib/godoc/jquery.treeview.css\"\u003e\n\u003cscript type=\"text/javascript\"\u003ewindow.initFuncs = [];\u003c/script\u003e\n\u003cscript type=\"text/javascript\"\u003e\nvar _gaq = _gaq || [];\n_gaq.push([\"_setAccount\", \"UA-11222381-2\"]);\n_gaq.push([\"b._setAccount\", \"UA-49880327-6\"]);\nwindow.trackPageview = function() {\n  _gaq.push([\"_trackPageview\", location.pathname+location.hash]);\n  _gaq.push([\"b._trackPageview\", location.pathname+location.hash]);\n};\nwindow.trackPageview();\nwindow.trackEvent = function(category, action, opt_label, opt_value, opt_noninteraction) {\n  _gaq.push([\"_trackEvent\", category, action, opt_label, opt_value, opt_noninteraction]);\n  _gaq.push([\"b._trackEvent\", category, action, opt_label, opt_value, opt_noninteraction]);\n};\n\u003c/script\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n\n\u003cdiv id='lowframe' style=\"position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;\"\u003e\n...\n\u003c/div\u003e\u003c!-- #lowframe --\u003e\n\n\u003cdiv id=\"topbar\"\u003e\u003cdiv class=\"container\"\u003e\n\u003cdiv class=\"top-heading\" id=\"heading-wide\"\u003e\u003ca href=\"/\"\u003eThe Go Programming Language\u003c/a\u003e\u003c/div\u003e\n\u003cdiv class=\"top-heading\" id=\"heading-narrow\"\u003e\u003ca href=\"/\"\u003eGo\u003c/a\u003e\u003c/div\u003e\n\u003ca href=\"#\" id=\"menu-button\"\u003e\u003cspan id=\"menu-button-arrow\"\u003e\u0026#9661;\u003c/span\u003e\u003c/a\u003e\n\u003cform method=\"GET\" action=\"/search\"\u003e\n\u003cdiv id=\"menu\"\u003e\n\u003ca href=\"/doc/\"\u003eDocuments\u003c/a\u003e\n\u003ca href=\"/pkg/\"\u003ePackages\u003c/a\u003e\n\u003ca href=\"/project/\"\u003eThe Project\u003c/a\u003e\n\u003ca href=\"/help/\"\u003eHelp\u003c/a\u003e\n\u003ca href=\"/blog/\"\u003eBlog\u003c/a\u003e\n\n\u003ca id=\"playgroundButton\" href=\"http://play.golang.org/\" title=\"Show Go Playground\"\u003ePlay\u003c/a\u003e\n\n\u003cinput type=\"text\" id=\"search\" name=\"q\" class=\"inactive\" value=\"Search\" placeholder=\"Search\"\u003e\n\u003c/div\u003e\n\u003c/form\u003e\n\n\u003c/div\u003e\u003c/div\u003e\n\n\n\u003cdiv id=\"playground\" class=\"play\"\u003e\n\t\u003cdiv class=\"input\"\u003e\u003ctextarea class=\"code\" spellcheck=\"false\"\u003epackage main\n\nimport \"fmt\"\n\nfunc main() {\n\tfmt.Println(\"Hello, 世界\")\n}\u003c/textarea\u003e\u003c/div\u003e\n\t\u003cdiv class=\"output\"\u003e\u003c/div\u003e\n\t\u003cdiv class=\"buttons\"\u003e\n\t\t\u003ca class=\"run\" title=\"Run this code [shift-enter]\"\u003eRun\u003c/a\u003e\n\t\t\u003ca class=\"fmt\" title=\"Format this code\"\u003eFormat\u003c/a\u003e\n\t\t\n\t\t\u003ca class=\"share\" title=\"Share this code\"\u003eShare\u003c/a\u003e\n\t\t\n\t\u003c/div\u003e\n\u003c/div\u003e\n\n\n\u003cdiv id=\"page\"\u003e\n\u003cdiv class=\"container\"\u003e\n\n\n\n\n\n\u003cdiv id=\"nav\"\u003e\u003c/div\u003e\n\n\n\n\n\u003cdiv class=\"left\"\u003e\n\n\u003cdiv id=\"learn\"\u003e\n\u003ca class=\"popout share\"\u003ePop-out\u003c/a\u003e\n\u003cdiv class=\"rootHeading\"\u003eTry Go\u003c/div\u003e\n\u003cdiv class=\"input\"\u003e\n\u003ctextarea spellcheck=\"false\" class=\"code\"\u003e// You can edit this code!\n// Click here and start typing.\npackage main\n\nimport \"fmt\"\n\nfunc main() {\n\tfmt.Println(\"Hello, 世界\")\n}\u003c/textarea\u003e\n\u003c/div\u003e\n\u003cdiv class=\"output\"\u003e\n\u003cpre\u003e\nHello, 世界\n\u003c/pre\u003e\n\u003c/div\u003e\n\u003cdiv class=\"buttons\"\u003e\n\u003ca class=\"run\" href=\"#\" title=\"Run this code [shift-enter]\"\u003eRun\u003c/a\u003e\n\n\u003ca class=\"share\" href=\"#\" title=\"Share this code\"\u003eShare\u003c/a\u003e\n\n\u003ca class=\"tour\" href=\"//tour.golang.org/\" title=\"Learn Go from your browser\"\u003eTour\u003c/a\u003e\n\u003c/div\u003e\n\u003cdiv class=\"toys\"\u003e\n\u003cselect\u003e\n\t\u003coption value=\"hello.go\"\u003eHello, World!\u003c/option\u003e\n\t\u003coption value=\"life.go\"\u003eConway's Game of Life\u003c/option\u003e\n\t\u003coption value=\"fib.go\"\u003eFibonacci Closure\u003c/option\u003e\n\t\u003coption value=\"peano.go\"\u003ePeano Integers\u003c/option\u003e\n\t\u003coption value=\"pi.go\"\u003eConcurrent pi\u003c/option\u003e\n\t\u003coption value=\"sieve.go\"\u003eConcurrent Prime Sieve\u003c/option\u003e\n\t\u003coption value=\"solitaire.go\"\u003ePeg Solitaire Solver\u003c/option\u003e\n\t\u003coption value=\"tree.go\"\u003eTree Comparison\u003c/option\u003e\n\u003c/select\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\u003c/div\u003e\n\n\u003cdiv class=\"right\"\u003e\n\n\u003cdiv id=\"about\"\u003e\nGo is an open source programming language that makes it easy to build\nsimple, reliable, and efficient software.\n\u003c/div\u003e\n\n\u003cdiv id=\"gopher\"\u003e\u003c/div\u003e\n\n\u003ca href=\"https://golang.org/dl/\" id=\"start\"\u003e\n\u003cspan class=\"big\"\u003eDownload Go\u003c/span\u003e\n\u003cspan class=\"desc\"\u003e\nBinary distributions available for\u003cbr\u003e\nLinux, Mac OS X, Windows, and more.\n\u003c/span\u003e\n\u003c/a\u003e\n\n\u003c/div\u003e\n\n\u003cdiv style=\"clear: both\"\u003e\u003c/div\u003e\n\n\u003cdiv class=\"left\"\u003e\n\n\u003cdiv id=\"video\"\u003e\n\u003cdiv class=\"rootHeading\"\u003eFeatured video\u003c/div\u003e\n\u003ciframe width=\"415\" height=\"241\" src=\"//www.youtube.com/embed/ytEkHepK08c\" frameborder=\"0\" allowfullscreen\u003e\u003c/iframe\u003e\n\u003c/div\u003e\n\n\u003c/div\u003e\n\n\u003cdiv class=\"right\"\u003e\n\n\u003cdiv id=\"blog\"\u003e\n\u003cdiv class=\"rootHeading\"\u003eFeatured articles\u003c/div\u003e\n\u003cdiv class=\"read\"\u003e\u003ca href=\"//blog.golang.org/\"\u003eRead more\u003c/a\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003c/div\u003e\n\n\u003cdiv style=\"clear: both;\"\u003e\u003c/div\u003e\n\n\u003cscript type=\"text/javascript\"\u003e\n\nfunction readableTime(t) {\n\tvar m = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\",\n\t\t\"August\", \"September\", \"October\", \"November\", \"December\"];\n\tvar p = t.substring(0, t.indexOf(\"T\")).split(\"-\");\n\tvar d = new Date(p[0], p[1]-1, p[2]);\n\treturn d.getDate() + \" \" + m[d.getMonth()] + \" \" + d.getFullYear();\n}\n\nfunction feedLoaded(result) {\n\tvar blog = document.getElementById(\"blog\");\n\tvar read = blog.getElementsByClassName(\"read\")[0];\n\tfor (var i = 0; i \u003c result.length \u0026\u0026 i \u003c 2; i++) {\n\t\tvar entry = result[i];\n\t\tvar title = document.createElement(\"a\");\n\t\ttitle.className = \"title\";\n\t\ttitle.href = entry.Link;\n\t\ttitle.innerHTML = entry.Title;\n\t\tblog.insertBefore(title, read);\n\t\tvar extract = document.createElement(\"div\");\n\t\textract.className = \"extract\";\n\t\textract.innerHTML = entry.Summary;\n\t\tblog.insertBefore(extract, read);\n\t\tvar when = document.createElement(\"div\");\n\t\twhen.className = \"when\";\n\t\twhen.innerHTML = \"Published \" + readableTime(entry.Time);\n\t\tblog.insertBefore(when, read);\n\t}\n}\n\nwindow.initFuncs.push(function() {\n\t// Set up playground if enabled.\n\tif (window.playground) {\n\t\twindow.playground({\n\t\t\t\"codeEl\":        \"#learn .code\",\n\t\t\t\"outputEl\":      \"#learn .output\",\n\t\t\t\"runEl\":         \"#learn .run\",\n\t\t\t\"shareEl\":       \"#learn .share\",\n\t\t\t\"shareRedirect\": \"//play.golang.org/p/\",\n\t\t\t\"toysEl\":        \"#learn .toys select\"\n\t\t});\n\t} else {\n\t\t$('#learn').hide()\n\t}\n\n\t// Load blog feed.\n\t$('\u003cscript/\u003e').attr('text', 'text/javascript')\n\t\t.attr('src', '//blog.golang.org/.json?jsonp=feedLoaded')\n\t\t.appendTo('body');\n\n\t// Set the video at random.\n\tvar videos = [\n\t\t{h: 241, s: \"//www.youtube.com/embed/ytEkHepK08c\"}, // Tour of Go\n\t\t{h: 241, s: \"//www.youtube.com/embed/f6kdp27TYZs\"}, // Concurrency Patterns\n\t\t{h: 233, s: \"//player.vimeo.com/video/69237265\"}    // Simple environment\n\t];\n\tvar v = videos[Math.floor(Math.random()*videos.length)];\n\t$('#video iframe').attr('height', v.h).attr('src', v.s);\n});\n\n\u003c/script\u003e\n\n\n\u003cdiv id=\"footer\"\u003e\nBuild version go1.8.3.\u003cbr\u003e\nExcept as \u003ca href=\"https://developers.google.com/site-policies#restrictions\"\u003enoted\u003c/a\u003e,\nthe content of this page is licensed under the\nCreative Commons Attribution 3.0 License,\nand code is licensed under a \u003ca href=\"/LICENSE\"\u003eBSD license\u003c/a\u003e.\u003cbr\u003e\n\u003ca href=\"/doc/tos.html\"\u003eTerms of Service\u003c/a\u003e | \n\u003ca href=\"http://www.google.com/intl/en/policies/privacy/\"\u003ePrivacy Policy\u003c/a\u003e\n\u003c/div\u003e\n\n\u003c/div\u003e\u003c!-- .container --\u003e\n\u003c/div\u003e\u003c!-- #page --\u003e\n\n\u003c!-- TODO(adonovan): load these from \u003chead\u003e using \"defer\" attribute? --\u003e\n\u003cscript type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js\"\u003e\u003c/script\u003e\n\u003cscript type=\"text/javascript\" src=\"/lib/godoc/jquery.treeview.js\"\u003e\u003c/script\u003e\n\u003cscript type=\"text/javascript\" src=\"/lib/godoc/jquery.treeview.edit.js\"\u003e\u003c/script\u003e\n\n\n\u003cscript type=\"text/javascript\" src=\"/lib/godoc/playground.js\"\u003e\u003c/script\u003e\n\n\u003cscript\u003evar goVersion = \"go1.8.3\";\u003c/script\u003e\n\u003cscript type=\"text/javascript\" src=\"/lib/godoc/godocs.js\"\u003e\u003c/script\u003e\n\n\u003cscript type=\"text/javascript\"\u003e\n(function() {\n  var ga = document.createElement(\"script\"); ga.type = \"text/javascript\"; ga.async = true;\n  ga.src = (\"https:\" == document.location.protocol ? \"https://ssl\" : \"http://www\") + \".google-analytics.com/ga.js\";\n  var s = document.getElementsByTagName(\"script\")[0]; s.parentNode.insertBefore(ga, s);\n})();\n\u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n\n",
+        "headers": {
+          "Alt-Svc": [
+            "quic=\":443\"; ma=2592000; v=\"39,38,37,36,35\""
+          ],
+          "Content-Length": [
+            "7902"
+          ],
+          "Content-Type": [
+            "text/html; charset=utf-8"
+          ],
+          "Date": [
+            "Thu, 20 Jul 2017 18:55:29 GMT"
+          ],
+          "Server": [
+            "Google Frontend"
+          ],
+          "Strict-Transport-Security": [
+            "max-age=31536000; preload"
+          ],
+          "X-Cloud-Trace-Context": [
+            "de298280b9806c47ac09e0461d8bad8c"
+          ]
+        },
+        "status": "200 OK",
+        "code": 200
+      }
+    }
+  ]
+}

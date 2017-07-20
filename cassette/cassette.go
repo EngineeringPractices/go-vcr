@@ -25,6 +25,7 @@
 package cassette
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -33,8 +34,6 @@ import (
 	"os"
 	"path/filepath"
 	"sync"
-
-	"gopkg.in/yaml.v2"
 )
 
 // Cassette format versions
@@ -52,42 +51,42 @@ var (
 // cassette file
 type Request struct {
 	// Body of request
-	Body string `yaml:"body"`
+	Body string `json:"body"`
 
 	// Form values
-	Form url.Values `yaml:"form"`
+	Form url.Values `json:"form"`
 
 	// Request headers
-	Headers http.Header `yaml:"headers"`
+	Headers http.Header `json:"headers"`
 
 	// Request URL
-	URL string `yaml:"url"`
+	URL string `json:"url"`
 
 	// Request method
-	Method string `yaml:"method"`
+	Method string `json:"method"`
 }
 
 // Response represents a server response as recorded in the
 // cassette file
 type Response struct {
 	// Body of response
-	Body string `yaml:"body"`
+	Body string `json:"body"`
 
 	// Response headers
-	Headers http.Header `yaml:"headers"`
+	Headers http.Header `json:"headers"`
 
 	// Response status message
-	Status string `yaml:"status"`
+	Status string `json:"status"`
 
 	// Response status code
-	Code int `yaml:"code"`
+	Code int `json:"code"`
 }
 
 // Interaction type contains a pair of request/response for a
 // single HTTP interaction between a client and a server
 type Interaction struct {
-	Request  `yaml:"request"`
-	Response `yaml:"response"`
+	Request  `json:"request"`
+	Response `json:"response"`
 }
 
 // Matcher function returns true when the actual request matches
@@ -104,27 +103,27 @@ func DefaultMatcher(r *http.Request, i Request) bool {
 // Cassette type
 type Cassette struct {
 	// Name of the cassette
-	Name string `yaml:"-"`
+	Name string `json:"-"`
 
 	// File name of the cassette as written on disk
-	File string `yaml:"-"`
+	File string `json:"-"`
 
 	// Cassette format version
-	Version int `yaml:"version"`
+	Version int `json:"version"`
 
 	sync.RWMutex
 	// Interactions between client and server
-	Interactions []*Interaction `yaml:"interactions"`
+	Interactions []*Interaction `json:"interactions"`
 
 	// Matches actual request with interaction requests.
-	Matcher Matcher `yaml:"-"`
+	Matcher Matcher `json:"-"`
 }
 
 // New creates a new empty cassette
 func New(name string) *Cassette {
 	c := &Cassette{
 		Name:         name,
-		File:         fmt.Sprintf("%s.yaml", name),
+		File:         fmt.Sprintf("%s.json", name),
 		Version:      cassetteFormatV1,
 		Interactions: make([]*Interaction, 0),
 		Matcher:      DefaultMatcher,
@@ -141,7 +140,7 @@ func Load(name string) (*Cassette, error) {
 		return nil, err
 	}
 
-	err = yaml.Unmarshal(data, &c)
+	err = json.Unmarshal(data, &c)
 
 	return c, err
 }
@@ -184,7 +183,7 @@ func (c *Cassette) Save() error {
 	}
 
 	// Marshal to YAML and save interactions
-	data, err := yaml.Marshal(c)
+	data, err := json.MarshalIndent(c, "", "  ")
 	if err != nil {
 		return err
 	}
@@ -195,13 +194,6 @@ func (c *Cassette) Save() error {
 	}
 
 	defer f.Close()
-
-	// Honor the YAML structure specification
-	// http://www.yaml.org/spec/1.2/spec.html#id2760395
-	_, err = f.Write([]byte("---\n"))
-	if err != nil {
-		return err
-	}
 
 	_, err = f.Write(data)
 	if err != nil {
